@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<graphics.h>
+ 
+// Finding absolute value
+int abs (int n)
+{
+    return ( (n>0) ? n : ( n * (-1)));
+}
+ 
+// Digital Differential Analyzer (DDA) Function for line generation
+void DDA(int X0, int Y0, int X1, int Y1)
+{
+    // calculating dx & dy
+    int dx = X1 - X0;
+    int dy = Y1 - Y0;
+ 
+    // calculating steps required for generating pixels
+    int steps = abs(dx) > abs(dy) ? abs(dx) : abs(dy);
+ 
+    // calculating increment in x & y for each step
+    float Xinc = dx / (float) steps;
+    float Yinc = dy / (float) steps;
+ 
+    // Put pixel for each step
+    float X = X0;
+    float Y = Y0;
+    for (int i = 0; i <= steps; i++)
+    {
+        putpixel (X,Y,RED);  // putting pixel at position (X,Y)
+        X += Xinc;           // incrementing x at each step
+        Y += Yinc;           // incrementing y at each step
+        delay(100);          
+    }
+}
+ 
+int main()
+{
+    int gd = DETECT, gm;
+    initgraph (&gd, &gm, "");   
+ 
+    int X0 = 2, Y0 = 2, X1 = 14, Y1 = 16;
+    DDA(2, 2, 14, 16);
+    return 0;
+} 

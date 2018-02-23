@@ -1,0 +1,14 @@
+// Boundary Fill Algorithm
+void boundaryFill (int x, int y, int fillColor, int borderColor){
+	
+	int interiorColor;
+	getPixel(x, y, interiorColor);
+
+	if((interiorColor != borderColor) && (interiorColor != fillColor)){
+		setPixel(x,y);
+		boundaryFill(x+1, y, fillColor, borderColor);
+		boundaryFill(x-1, y, fillColor, borderColor);
+		boundaryFill(x, y+1, fillColor, borderColor);
+		boundaryFill(x, y-1, fillColor, borderColor)
+	}
+}
