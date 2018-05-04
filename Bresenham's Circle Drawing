@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <dos.h>
 #include <graphics.h>
-#include <conio.h>
  
 // Function to put pixels at the subsequent points
 void drawCircle(int xc, int yc, int x, int y)
@@ -42,7 +41,6 @@ void circleBres(int xc, int yc, int r)
  
 int main(void)
 {
-    clrscr();
     int xc = 50, yc = 50, r2 = 30;
     int gd = DETECT, gm;
     initgraph(&gd, &gm, "");  
