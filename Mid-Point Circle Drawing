@@ -53,9 +53,9 @@ void midPointCircleDraw(int x_centre, int y_centre, int r)
     } 
 }
  
-int main()
+int main(void)
 {
     // To draw a circle of radius 5 centred at (0, 0)
     midPointCircleDraw(0, 0, 5);
-    return 0;
+
 }
